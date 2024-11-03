@@ -46,7 +46,7 @@ print("Number of coins:", len(result))
 #### Output:
 
 # Coins used: [25, 25, 10, 1, 1, 1]
-# Number of coins: 6
+# Number of coins: 6kl;kd;ck;
 
 """
 ### Why is it "Greedy"?
