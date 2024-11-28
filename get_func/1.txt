@@ -1,0 +1,75 @@
+The `get` function is a method in Python dictionaries. It is used to safely retrieve the value of a key. If the key exists, it returns the corresponding value; if the key does not exist, it returns a default value (default is `None`).
+
+### Syntax:
+```python
+dictionary.get(key, default_value)
+```
+- `key`: The key to look for in the dictionary.
+- `default_value` (optional): The value to return if the key does not exist. Defaults to `None` if not provided.
+
+---
+
+### Example 1: Basic Usage
+```python
+data = {'name': 'Alice', 'age': 25}
+
+# Retrieve existing key
+print(data.get('name'))  # Output: Alice
+
+# Retrieve non-existing key with default value
+print(data.get('gender', 'Not Specified'))  # Output: Not Specified
+
+# Retrieve non-existing key without default value
+print(data.get('city'))  # Output: None
+```
+
+---
+
+### Example 2: Avoiding KeyError
+```python
+data = {'a': 10, 'b': 20}
+
+# Using get avoids KeyError
+value = data.get('c', 0)  # Default to 0 if 'c' is not found
+print(value)  # Output: 0
+
+# Accessing directly would raise a KeyError
+# print(data['c'])  # This would raise a KeyError: 'c'
+```
+
+---
+
+### Example 3: Usage in a Loop
+```python
+counts = {}
+words = ['apple', 'banana', 'apple', 'orange', 'banana', 'banana']
+
+for word in words:
+    counts[word] = counts.get(word, 0) + 1  # Default count is 0
+
+print(counts)
+# Output: {'apple': 2, 'banana': 3, 'orange': 1}
+```
+
+---
+
+### Example 4: Nested Dictionary
+```python
+student = {
+    'name': 'John',
+    'grades': {
+        'math': 90,
+        'science': 85
+    }
+}
+
+# Safely access nested dictionary
+math_grade = student.get('grades', {}).get('math', 'No grade')
+print(math_grade)  # Output: 90
+
+# Safely handle missing keys
+history_grade = student.get('grades', {}).get('history', 'No grade')
+print(history_grade)  # Output: No grade
+```
+
+The `get` function is particularly useful for avoiding errors and handling default values in Python dictionaries.
